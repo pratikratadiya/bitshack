@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">	
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="{% static 'css/assets/vendor/nucleo/css/nucleo.css' %}" rel="stylesheet">
+  <link href="{% static 'css/assets/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <!-- Argon CSS -->
+  <link type="text/css" href="{% static 'css/assets/css/argon.min.css' %}" rel="stylesheet">
+  <script src="{% static 'css/assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'css/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+	<title>Headcount Monitoring System</title>
+</head>
+<body style="background-image: linear-gradient(to right,#f4f5f7,#f6f9fc);">
+<nav class="navbar navbar-expand-lg navbar-dark bg-default">
+        <a class="navbar-brand" href="/" style="font-size: 120%;font-family: ""><img src="{% static 'logo.jpeg' %}" style="height:40px;">&nbsp;&nbsp;&nbsp;Headcount monitoring System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-default">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <a href=''>
+                            <img src="{% static 'css/assets/img/brand/blue.png' %}">
+                        </a>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default" aria-expanded="false" aria-label="Toggle navigation">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</nav>
+{% block content %}
+{% endblock %}
+  <script src="{% static 'css/assets/vendor/popper/popper.min.js' %}"></script>
+  <script src="{% static 'css/assets/vendor/bootstrap/bootstrap.min.js' %}"></script>
+  <script src="{% static 'css/assets/vendor/headroom/headroom.min.js' %}"></script>
+
+</body>
+</html>

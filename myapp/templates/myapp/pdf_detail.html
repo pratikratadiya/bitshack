@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pdf Generation Report</title>
+</head>
+<style type="text/css">
+	table{
+		font-size: 130%;
+		border:2px solid black;
+	}
+	table > tr,td {
+		border:2px solid black;
+		width: 400px;
+	}
+</style>
+<body>
+<h2>Crowd Report Detail</h2><hr>
+
+<h3>Original Image</h3>
+
+
+<img src="{{ image_url }}" width="50%">
+
+<br><br>
+<table>
+<tr>
+<td>
+Total Headcount:</td>
+<td> {{ count }}</td>
+</tr>
+<tr>
+	<td>
+	Location: </td><td>{{ place }}</td></tr>
+<tr>
+	<td>
+	Image captured on: </td><td>{{ time_and_date }}</td>
+</tr>
+<tr>
+	<td>
+	Other description: </td><td>{{ exact_location }}</td>
+</tr>
+<tr>
+	<td>
+	Uploaded by:</td><td> {{ volunteer_name }}</td>
+</tr>
+<tr>
+	<td>
+	Uploaded on:</td><td> {{ uploaded_on }}</td>
+</tr>
+</table>
+<hr>
+</body>
+</html>

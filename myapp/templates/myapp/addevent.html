@@ -1,0 +1,114 @@
+{% extends 'myapp/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<br>
+{% if msg %}
+<script type="text/javascript">
+  alert('{{ msg }}');
+</script>
+{% endif %}
+<div class="row">
+  <div class="col-md-4"></div>
+<H3>Create traffic Report</H3>
+</div>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-5 card shadow">
+<form action="/event_create/" method="post" style="padding: 20px;">
+{% csrf_token %}
+    <div class="row">
+      <div class="form-group col-md-12">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-pin-3"></i></span>
+          </div>
+        <input type="text" class="form-control" name="work" placeholder="Enter location">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-watch-time"></i></span>
+          </div>        
+        <input type="text" class="form-control" name="time" placeholder="Time when image captured (12 hr format Hour:min am/pm)">
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-12">
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+          </div>
+        <input type="text" class="form-control" name="date" placeholder="Date when image captured (DD-MM-YYYY)">
+      </div>
+      </div>
+    </div>
+
+<div class="row">
+  <div class="col-md-8">
+    <input type="file" name="files[]" id="files" class="btn btn-secondary">
+    <input type="hidden" name="url" id="url">
+  </div>
+  <div class="col-md-4">
+    <button type="button" onclick="uploadimage()" class="btn btn-secondary">Upload file</button>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 15px;">
+
+<textarea rows="3" cols="40" name="location" required class="form-control" placeholder="Exact place and other description.."></textarea><br>
+</div><br>
+<div class="row">
+
+<input type="submit" value="Submit" class="btn btn-outline-success" style="margin-left: 35%;">
+</div>
+
+</form>
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    var config = {
+      apiKey: "AIzaSyBmyjt2BagFjMpTl23Rh_fZjQw4n12fkxQ",
+      authDomain: "pyrecoep.firebaseapp.com",
+      databaseURL: "https://pyrecoep.firebaseio.com",
+      storageBucket: "pyrecoep.appspot.com",
+      messagingSenderId: "649740044984"
+    };
+    firebase.initializeApp(config);
+  // Get a reference to the storage service, which is used to create references in your storage bucket
+  function uploadimage(){
+  var storage = firebase.storage();
+
+  var file = document.getElementById("files").files[0];
+
+  var storageRef = storage.ref();
+
+  var thisref = storageRef.child(`images/${file.name}`).put(file);
+
+  thisref.on('state_changed',function(snapshot){
+
+  console.log("file uploaded succesfully");
+
+  },
+  function(error) {
+
+  },
+
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("url").value = downloadURL;
+  alert("file uploaded successfully");
+});
+
+}
+
+
+</script>
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'myapp/base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="row mt-4">
+  <div class="col-md-4"></div>
+<H3>Check heart disease probability</H3>
+</div>
+<div class="row mt-3">
+  <div class="col-md-2 mx-3"></div>
+  <div class="col-md-7 card shadow">
+<form action="/disease_check/" method="post" style="padding: 20px;">
+{% csrf_token %}
+    <div class="row mt-2">
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+          </div>
+        <input type="text" class="form-control" name="age" placeholder="Enter age of patient">
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+          </div>        
+        <input type="text" class="form-control" name="sex" placeholder="Enter gender(1 for male and 0 for female)">
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-sound-wave"></i></span>
+          </div>
+        <input type="text" class="form-control" name="bps" placeholder="Enter resting blood pressure(in mm Hg)">
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-ui-04"></i></span>
+          </div>        
+        <input type="text" class="form-control" name="scol" placeholder="Enter serum cholestrol in mg/dl">
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-chart-bar-32"></i></span>
+          </div>
+        <input type="text" class="form-control" name="mhr" placeholder="Enter maximum heart rate achieved">
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-ambulance"></i></span>
+          </div>        
+        <input type="text" class="form-control" name="stdp" placeholder="ST depression induced by exercise">
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-align-left-2"></i></span>
+          </div>
+        <input type="text" class="form-control" name="mvc" placeholder="No. of major vessels colored(0-3)">
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="ni ni-map-big"></i></span>
+          </div>        
+        <input type="text" class="form-control" name="thal" placeholder="Enter the Thal value(3/6/7)">
+      </div>
+      </div>
+    </div>
+
+
+<br>
+<div class="row">
+
+<input type="submit" value="Submit" class="btn btn-outline-success" style="margin-left: 42%;">
+</div>
+
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<br>
+<h4 align="center"><u>Quick access Head count monitor</u></h4>
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4 card shadow">
+		<form method="post" action='/raw_access/' enctype="multipart/form-data">
+			{% csrf_token %}
+		<div style="padding-top: 10px;padding-left: 50px;">
+		File:<br>
+		<input type="file" name="imgfile"><br><br>
+		<input type="submit" value="Submit"><br><br>
+	</div>
+</form>
+{% endblock %}

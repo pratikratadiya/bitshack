@@ -1,0 +1,52 @@
+{% extends 'myapp/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<section style="background: url('{% static 'bg2.jpg' %}');height: 577px;">
+<div class="container">	
+<div class="row alert alert-secondary" style="margin-left: -90px;">
+	<div class="col-md-8">
+		Welcome <strong>{{ name }} !</strong>
+	</div>
+	<div class="col-md-2"></div>
+	
+	<div class="col-md-2">
+		<strong><a href="{% url 'logout' %}" style="float: right;"> Logout</a></strong>
+	</div>
+</div>
+
+<br>
+
+<div class="row">
+
+	<button class="btn btn-icon btn-3 btn-warning btn-outline-warning" type="button" onclick="location.href='{% url 'addevent' %}'">
+	<span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
+
+    <span class="btn-inner--text">Enter event details</span>
+
+	</button>
+
+
+	<button class="btn btn-icon btn-3 btn-primary btn-outline-primary ml-5" type="button" onclick="location.href='{% url 'eventdetails' %}'">
+	<span class="btn-inner--icon"><i class="ni ni-single-02"></i></span>
+
+    <span class="btn-inner--text">See previous entered events</span>
+
+	</button>
+
+
+		{% if status %}
+
+			<button class="btn btn-icon btn-3 btn-primary btn-outline-success ml-5" type="button" onclick="location.href='{% url 'allreports' %}'">
+			<span class="btn-inner--icon"><i class="ni ni-bullet-list-67"></i></span>
+
+		    <span class="btn-inner--text">See all user reports</span>
+
+			</button>
+			</div>	
+		{% endif %}	
+		</div>	
+	</div>
+</div>
+
+</section>
+{% endblock %}

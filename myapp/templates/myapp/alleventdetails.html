@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+{% if list %}
+<h4 style="padding-left: 15px;padding-top:15px;">Previous log entries of all users</h4><hr>
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div class="row">
+			<div class="col-md-3" style="border-bottom: 2px solid black;">
+				<h3 class="display-4">Time and date</h3>
+			</div>	
+			<div class="col-md-2" style="border-bottom: 2px solid black;">
+				<h3 class="display-4">Place</h3>
+			</div>	
+			<div class="col-md-3" style="border-bottom: 2px solid black;">
+				<h4 class="display-4">Other description</h4>
+			</div>
+			<div class="col-md-2" style="border-bottom: 2px solid black;">
+				<h4 class="display-4">User</h4>
+			</div>				
+			<div class="col-md-2" style="border-bottom: 2px solid black;">
+				<h3 class="display-4">Link</h3>
+			</div>										
+		</div>	
+	{% for entry in list %}
+	<div class="row" style="padding-top: 15px;border-bottom: 1px solid black;padding-bottom: 15px;">
+		<div class="col-md-3">{{ entry.time_and_date }}</div>
+		<div class="col-md-2">{{ entry.place }}</div>
+		<div class="col-md-3">{{ entry.exact_location }}</div>
+		<div class="col-md-2">{{ entry.volunteer_name }}</div>		
+		<div class="col-md-2"><a href="/event_detail/{{ entry.UID }}">Know more</a></div>
+	</div>
+	{% endfor %}
+	</div>
+</div>
+{% else %}
+<h2>Nothing to display</h2>
+{% endif %}
+{% endblock %}

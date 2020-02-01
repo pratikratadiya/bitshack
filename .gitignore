@@ -1,0 +1,13 @@
+db.sqlite3
+android-demo-app
+myvenv/
+android-demo-app/
+__pycache__/
+python_firebase_test/
+*.h5
+*.ipynb
+.ipynb_checkpoints/
+model.json
+pyrecoep.json
+Presentation.pdf
+*.pptx

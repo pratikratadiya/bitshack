@@ -1,0 +1,88 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="row">
+	<div class="col-md-8">
+<h3 style="margin-left:10px;margin-top:10px;">Crowd Report Detail</h3>
+</div>
+<div class="col-md-4" style="padding-top: 10px;">
+	<button type="button" class="btn btn-success" onclick="location.href='/gen_pdf/{{ uid }}'">Send me a PDF!</button>
+	<button type="button" class="btn btn-warning" onclick="location.href='/welcome/'">Go back</button>	
+</div>
+</div>
+<hr>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<div class="row">
+			<div class="col-md-12">Original Image</div>
+			<br>
+	<div class="col-md-12" style="padding-top: 20px;"><img src = "{{ image_url }}" height="100%" width="100%" style="float: left;"></div>
+	</div>
+	</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<div class="row">
+			<div class="col-md-12">Generated density map</div>
+		<div class="col-md-12" style="padding-top: 20px;"><img src = "{{ heatmap_url }}" height="100%" width="100%"></div>
+	</div>
+</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<h2>Total Headcount: </h2>
+	</div>
+	<div class="col-md-5">
+		<h1>{{ count }}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<h3>Location: </h3>
+	</div>
+	<div class="col-md-5">
+		<h3>{{ place }}</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<h3>Image captured on: </h3>
+	</div>
+	<div class="col-md-5">
+		<h3>{{ time_and_date }}</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<h3>Other description: </h3>
+	</div>
+	<div class="col-md-5">
+		<h3>{{ exact_location }}</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<h3>Uploaded by: </h3>
+	</div>
+	<div class="col-md-5">
+		<h3>{{ volunteer_name }}</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+		<h3>Uploaded on: </h3>
+	</div>
+	<div class="col-md-5">
+		<h3>{{ uploaded_on }}</h3>
+	</div>
+</div>
+
+
+
+{% endblock %}
