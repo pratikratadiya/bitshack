@@ -29,7 +29,7 @@ matplotlib==2.2.3
 numpy==1.14.5
 oauth2client==3.0.0
 pdfrw==0.4
-Pillow==5.2.0
+Pillow==6.2.0
 pkg-resources==0.0.0
 protobuf==3.6.1
 pyasn1==0.4.4
